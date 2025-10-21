@@ -1,5 +1,6 @@
--- 汉化脚本
--- 自动生成的汉化脚本
+local Compkiller = loadstring(game:HttpGet("https://raw.githubusercontent.com/4lpaca-pin/CompKiller/refs/heads/main/src/source.luau"))();
+
+Compkiller:Loader("rbxassetid://104148937036279", 2.5).yield();
 
 local Translations = {["snmwdd"] = "翻译者",
 ["shaders loaded successfully!"] = "着色器加载成功！",
