@@ -1,0 +1,238 @@
+-- 汉化脚本
+-- 自动生成的汉化脚本
+
+local Translations = {["snmwdd"] = "翻译者",
+["shaders loaded successfully!"] = "着色器加载成功！",
+
+["pshade ultimate"] = "pshade 终极版(snmwdd翻译)",
+["patrick shaders"] = "patrick 着色器",
+
+["shaders"] = "着色器",
+["shaders lite"] = "着色器精简版",
+["shaders color"] = "着色器颜色",
+["shaders color lite"] = "着色器颜色精简版",
+["weathers"] = "天气",
+["seasons"] = "季节",
+
+["welcome to pshade ultimate"] = "欢迎使用 pshade 终极版",
+["@snmwdd"] = "@snmwdd",
+["@Im_Patrick"] = "@Im_Patrick",
+["subscribe"] = "订阅",
+["changelogs"] = "更新日志",
+["running shaders now run realtime perfectly"] = "着色器现在实时完美运行",
+["added global illumination [beta ]"] = "新增全局光照 [测试版]",
+["fixed blur effect"] = "修复了模糊效果",
+["added adjust auto load and fix ui size"] = "添加了自动加载调整并修复了界面尺寸",
+["small update for gui"] = "界面进行了小更新",
+["fixed some features not showing up"] = "修复了部分功能未显示的问题",
+["faster preview"] = "更快的预览",
+["adjustment"] = "调整",
+["effects"] = "效果",
+
+["added global illumination [beta ]"] = "新增全局光照 [测试版]",
+["fixed blur effect"] = "修复了模糊效果",
+["added adjust auto load and fix ui size"] = "添加了自动加载调整并修复了界面尺寸",
+["small update for gui"] = "界面进行了小更新",
+["fixed some features not showing up"] = "修复了部分功能未显示的问题",
+["faster preview"] = "更快的预览",
+["lighting element cannot be deleted fix"] = "修复了光照元素无法删除的问题",
+
+["night theme"] = "夜间主题",
+["small fix and error handle"] = "小修复与错误处理",
+["small debug update"] = "调试小更新",
+["more games support"] = "支持更多游戏",
+["skybox added"] = "新增天空盒",
+["filesystem fix"] = "修复文件系统问题",
+["slow load fix"] = "修复加载缓慢问题",
+
+["more adjustment stuff"] = "更多调整内容",
+["new ui and old ui combination"] = "新旧界面结合",
+["gui dragging fix"] = "修复界面拖动问题",
+["shader load faster"] = "加快着色器加载速度",
+
+["Feedback"] = "反馈",
+
+["search graphics settings"] = "搜索图形设置",
+["shaders technology"] = "着色器技术",
+["ShadowMap"] = "阴影贴图",
+["number shaders quality"] = "着色器质量数值",
+["copy saved adjustment to clipboard"] = "将已保存的调整复制到剪贴板",
+["world adjust"] = "世界调整",
+["skybox"] = "天空盒",
+["reflectance"] = "反射率",
+["default"] = "默认",
+
+["waterwavespee"] = "水波速度",
+["global illumination"] = "全局光照",
+["watertransparency"] = "水透明度",
+["waterwavesize"] = "水波大小",
+["time adjustment"] = "时间调整",
+["clock time"] = "时钟时间",
+
+["geographic latitude"] = "地理纬度",
+["clouds cover"] = "云层覆盖",
+["clouds adjustment"] = "云层调整",
+["clouds density"] = "云层密度",
+["atmosphere adjustment"] = "大气调整",
+["atmosphere density"] = "大气密度",
+["atmosphere offset"] = "大气偏移",
+
+["atmosphere glare"] = "大气眩光",
+["atmosphere haze"] = "大气薄雾",
+["dof farintensity"] = "景深远处强度",
+["dof focusdistance"] = "景深焦距",
+["search"] = "搜索",
+["depth of field adjustment"] = "景深调整",
+["depthoffield enablec"] = "启用景深",
+
+["farintensity"] = "景深远处强度",
+["focusdistance"] = "景深焦距",
+
+["sunrays intensity"] = "太阳光强度",
+["sunrays spread"] = "太阳光扩散",
+["sunrays adjustment"] = "太阳光调整",
+["sunrays enabled"] = "启用太阳光",
+["colorcorrection adiustment"] = "颜色校正调整",
+
+["colorcor enabled"] = "启用颜色校正",
+["colorcor brightness"] = "颜色校正亮度",
+["colorcor contrast"] = "颜色校正对比度",
+["colorcor saturation"] = "颜色校正饱和度",
+["blureffect adjustment"] = "模糊效果调整",
+["blureffect enabled"] = "启用模糊效果",
+
+["blureffect enabled"] = "启用模糊效果",
+["blur size"] = "模糊大小",
+["bloom adjustment"] = "泛光调整",
+["bloom enabled"] = "启用泛光",
+["bloom intensity"] = "泛光强度",
+["bloom size"] = "泛光大小",
+
+["sunflare adjustment"] = "太阳耀斑调整",
+["sunflare enabled"] = "启用太阳耀斑",
+["blur motion adjustment"] = "动态模糊调整",
+["blur motion enabled"] = "启用动态模糊",
+["blur size"] = "模糊大小",
+
+["gui parent"] = "界面父级",
+["language"] = "语言",
+["background image theme"] = "背景图片主题",
+["background"] = "背景",
+["Image background transparency"] = "图片背景透明度",
+["coregui"] = "核心界面",
+["en"] = "英语",
+["random"] = "随机",
+
+["home"] = "主页"}
+
+local function translateText(text)
+    if not text or type(text) ~= "string" then return text end
+    
+    if Translations[text] then
+        return Translations[text]
+    end
+    
+    for en, cn in pairs(Translations) do
+        if text:find(en) then
+            return text:gsub(en, cn)
+        end
+    end
+    
+    return text
+end
+
+local function setupTranslationEngine()
+    local success, err = pcall(function()
+        local oldIndex = getrawmetatable(game).__newindex
+        setreadonly(getrawmetatable(game), false)
+        
+        getrawmetatable(game).__newindex = newcclosure(function(t, k, v)
+            if (t:IsA("TextLabel") or t:IsA("TextButton") or t:IsA("TextBox")) and k == "Text" then
+                v = translateText(tostring(v))
+            end
+            return oldIndex(t, k, v)
+        end)
+        
+        setreadonly(getrawmetatable(game), true)
+    end)
+    
+    if not success then
+        warn("元表劫持失败:", err)
+       
+        local translated = {}
+        local function scanAndTranslate()
+            for _, gui in ipairs(game:GetService("CoreGui"):GetDescendants()) do
+                if (gui:IsA("TextLabel") or gui:IsA("TextButton") or gui:IsA("TextBox")) and not translated[gui] then
+                    pcall(function()
+                        local text = gui.Text
+                        if text and text ~= "" then
+                            local translatedText = translateText(text)
+                            if translatedText ~= text then
+                                gui.Text = translatedText
+                                translated[gui] = true
+                            end
+                        end
+                    end)
+                end
+            end
+            
+            local player = game:GetService("Players").LocalPlayer
+            if player and player:FindFirstChild("PlayerGui") then
+                for _, gui in ipairs(player.PlayerGui:GetDescendants()) do
+                    if (gui:IsA("TextLabel") or gui:IsA("TextButton") or gui:IsA("TextBox")) and not translated[gui] then
+                        pcall(function()
+                            local text = gui.Text
+                            if text and text ~= "" then
+                                local translatedText = translateText(text)
+                                if translatedText ~= text then
+                                    gui.Text = translatedText
+                                    translated[gui] = true
+                                end
+                            end
+                        end)
+                    end
+                end
+            end
+        end
+        
+        local function setupDescendantListener(parent)
+            parent.DescendantAdded:Connect(function(descendant)
+                if descendant:IsA("TextLabel") or descendant:IsA("TextButton") or descendant:IsA("TextBox") then
+                    task.wait(0.1)
+                    pcall(function()
+                        local text = descendant.Text
+                        if text and text ~= "" then
+                            local translatedText = translateText(text)
+                            if translatedText ~= text then
+                                descendant.Text = translatedText
+                            end
+                        end
+                    end)
+                end
+            end)
+        end
+        
+        pcall(setupDescendantListener, game:GetService("CoreGui"))
+        local player = game:GetService("Players").LocalPlayer
+        if player and player:FindFirstChild("PlayerGui") then
+            pcall(setupDescendantListener, player.PlayerGui)
+        end
+        
+        while true do
+            scanAndTranslate()
+            task.wait(3)
+        end
+    end
+end
+
+task.wait(2)
+
+setupTranslationEngine()
+
+local success, err = pcall(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ke9460394-dot/ugik/refs/heads/main/%E5%9C%BA%E6%99%AF%E6%9B%B4%E6%94%B9%E5%99%A8.lua"))()
+end)
+
+if not success then
+    warn("加载失败:", err)
+end
